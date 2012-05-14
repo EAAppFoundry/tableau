@@ -15,6 +15,7 @@ This example also goes hand in hand with the information documented over on [nod
 * routes living in a dedicated route.js file. [link](https://github.com/EAAppFoundry/tableau/blob/master/routes.js)
 * dealing with configuration for multiple environments. [link](https://github.com/EAAppFoundry/tableau/blob/master/config/config.js)
 * encapsulating controller code into separate, dedicated js files. [link](https://github.com/EAAppFoundry/tableau/blob/master/controllers/site.js)
+
 ##### A note about models
 We purposely did not implement any models in this example.  The answer for 'how do I properly implement my models' is 'it depends'.  While this example is biased toward MongoDB, it doesn't choose to specify an ODM.  For an example of using the mongo driver, check out [HiProfile](https://bitbucket.org/EATurner/hiprofile).  For a Mongoose example, take a look at [Flow](https://bitbucket.org/EATurner/flow).
 
