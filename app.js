@@ -1,10 +1,10 @@
 var express = require('express');
-var config = require('./config/config');
 
 var app = module.exports = express.createServer();
 
 // Check node_env, if not set default to development
-process.env.NODE_ENV = (process.env.NODE_ENV || "development");
+var env = (process.env.NODE_ENV || "development");
+var config = require('./config/config')[env];
 
 // Configuration, defaults to jade as the view engine
 app.configure(function(){
@@ -20,18 +20,10 @@ app.configure(function(){
  * This section is for environment specific configuration
  */
 app.configure('development', function(){
-    config.setDevelopmentConfig();
-    console.log(config.DatabaseConfig);
-    console.log(config.EnvConfig);
-
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
 app.configure('production', function(){
-    config.setProductionConfig();
-    console.log(config.DatabaseConfig);
-    console.log(config.EnvConfig);
-    
     app.use(express.errorHandler());
 });
 
@@ -47,5 +39,3 @@ app.listen(config.EnvConfig.port, function(){
  */
 module.exports.app = app;
 routes = require('./routes');
-
-
